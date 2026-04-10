@@ -312,7 +312,7 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-  gap: 40px;
+  gap: 80px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -439,6 +439,8 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
   width: 600px;
   height: 600px;
   flex-shrink: 0;
+  transform: scale(0.85);
+  transform-origin: right center;
 }
 
 /* ── Glow de fundo ── */
@@ -2047,7 +2049,7 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
 
   /* Vídeo Tablet */
   .hero-device { display: block; width: 100%; }
-  .orbital-system { width: 100%; max-width: 600px; height: auto; margin: 0 auto; }
+  .orbital-system { width: 100%; max-width: 600px; height: auto; margin: 0 auto; transform: none; }
   .orbital-core-video { width: 100%; height: auto; aspect-ratio: 16/9; }
   .device-video { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; }
   .orbital-core-ring, .orbital-core-ring-2, .core-halo, .orbital-stars, .orbital-core-glow { display: none; }
