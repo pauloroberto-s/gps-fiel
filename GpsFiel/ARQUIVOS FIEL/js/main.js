@@ -369,6 +369,11 @@ function initHeroVideo() {
   // Tentar iniciar com áudio (como solicitado)
   video.muted = false;
   video.autoplay = true;
+  
+  if (soundBtn) {
+    soundBtn.innerHTML = '<i class="fas fa-volume-up"></i><span>Áudio ativo</span>';
+    soundBtn.classList.add('active');
+  }
 
   const playPromise = video.play();
 

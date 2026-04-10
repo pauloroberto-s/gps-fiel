@@ -557,10 +557,12 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  display: none;
+  display: flex;
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
+  z-index: 30;
+  cursor: pointer;
   background: rgba(201, 168, 76, 0.9);
   color: #0a0a0f;
   border-radius: 100px;
