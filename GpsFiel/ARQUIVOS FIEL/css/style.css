@@ -882,6 +882,7 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(1.15);
 }
 
 .tech-video-badge-row {
