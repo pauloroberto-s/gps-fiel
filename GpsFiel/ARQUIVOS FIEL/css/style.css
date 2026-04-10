@@ -353,8 +353,16 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
 .hero-ctas {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 32px;
+}
+.hero-ctas .btn {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .hero-stats {
@@ -803,7 +811,9 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
 .sol-card-body { padding: 28px; display: flex; flex-direction: column; gap: 14px; }
 
 .sol-tag {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   align-items: center;
   gap: 6px;
   font-family: 'Montserrat', sans-serif;
