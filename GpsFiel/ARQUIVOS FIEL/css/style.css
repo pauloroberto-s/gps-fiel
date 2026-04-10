@@ -205,13 +205,13 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
   left: 0;
   right: 0;
   z-index: 999;
-  background: rgba(10,10,15,0.92);
+  background: rgba(45, 0, 87, 0.85); /* Roxo transparente */
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(201,168,76,0.15);
   transition: var(--transition);
 }
 .site-header.scrolled {
-  background: rgba(10,10,15,0.98);
+  background: rgba(45, 0, 87, 0.98); /* Roxo menos transparente ao rolar */
   border-color: rgba(201,168,76,0.3);
 }
 
