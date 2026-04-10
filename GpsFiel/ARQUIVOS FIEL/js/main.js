@@ -326,11 +326,11 @@ function initSmoothScroll() {
 // 10. VIDEO AUTOPLAY (fallback for mobile)
 // ═══════════════════════════════════════════════════
 (function autoplayVideos() {
-  const videos = document.querySelectorAll('video[autoplay]');
+  const videos = document.querySelectorAll('video[autoplay]:not(#heroVideo)');
   videos.forEach(v => {
     v.play().catch(() => {
-      v.removeAttribute('autoplay');
-      v.setAttribute('controls', '');
+      v.muted = true;
+      v.play().catch(() => {});
     });
   });
 })();
@@ -359,15 +359,36 @@ document.head.appendChild(style);
 function initHeroVideo() {
   const video = document.getElementById('heroVideo');
   const soundBtn = document.getElementById('videoSoundBtn');
-  const isMobile = window.innerWidth <= 900;
   
-  if (!video || !soundBtn) return;
+  if (!video) return;
   
-  if (isMobile) {
-    video.muted = true;
-    video.autoplay = true;
-    video.loop = true;
-    
+  // Não repetir o vídeo
+  video.loop = false;
+  video.controls = false;
+  
+  // Tentar iniciar com áudio (como solicitado)
+  video.muted = false;
+  video.autoplay = true;
+
+  const playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      // Bloqueado pelas políticas do celular (Chrome/Safari)
+      // Fallback: Inicia mudo para garantir que o visual passe
+      video.muted = true;
+      video.play().catch(() => {});
+      
+      // Reseta visual do botão
+      if (soundBtn) {
+        soundBtn.innerHTML = '<i class="fas fa-volume-xmark"></i><span>Ativar áudio</span>';
+        soundBtn.classList.remove('active');
+        soundBtn.style.display = 'flex';
+      }
+    });
+  }
+
+  if (soundBtn) {
     soundBtn.addEventListener('click', () => {
       if (video.muted) {
         video.muted = false;
@@ -380,9 +401,5 @@ function initHeroVideo() {
         soundBtn.classList.remove('active');
       }
     });
-  } else {
-    video.autoplay = true;
-    video.loop = true;
-    video.controls = true;
   }
 }
