@@ -358,11 +358,20 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
 }
 .hero-ctas .btn {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
   white-space: normal;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 16px 8px;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  gap: 6px;
+}
+.hero-ctas .btn i {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
 .hero-stats {
