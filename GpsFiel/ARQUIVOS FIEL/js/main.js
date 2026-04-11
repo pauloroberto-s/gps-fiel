@@ -360,10 +360,7 @@ function initHeroVideo() {
   const video = document.getElementById('heroVideo');
   const soundBtn = document.getElementById('videoSoundBtn');
   
-  if (!video) return;
-  
-  // Não repetir o vídeo
-  video.loop = false;
+  // Garante que não hajam controles nativos expostos
   video.controls = false;
   
   // WORKAROUND ESPECÍFICO PARA ANDROID:

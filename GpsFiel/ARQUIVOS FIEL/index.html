@@ -135,8 +135,12 @@
             <div class="orbital-core-ring"></div>
             <div class="orbital-core-ring-2"></div>
             <div class="orbital-core-video">
-              <video id="heroVideo" class="device-video" autoplay playsinline webkit-playsinline>
-                <source src="images/gps-fiel-rastreamento-veicular.mp4" type="video/mp4" />
+              <!-- ATRIBUTOS NATIVOS ESTATICOS (MUTED OBRIGATÓRIO PARA ANDROID/CHROME) -->
+              <video id="heroVideo" class="device-video" autoplay loop muted playsinline webkit-playsinline
+                poster="./images/gps-device-main.jpg">
+                <source src="./images/gps-fiel-rastreamento-veicular.mp4" type="video/mp4" />
+                <!-- Fallback para navegadores que falhem ao carregar o vídeo -->
+                <img src="./images/gps-device-main.jpg" alt="GPS Fiel em Rastreador Veicular" class="device-video" />
               </video>
               <div class="video-sound-btn" id="videoSoundBtn">
                 <i class="fas fa-volume-xmark"></i>
@@ -279,9 +283,11 @@
         <!-- VÍDEO PRINCIPAL DO PRODUTO -->
         <div class="tech-video-block">
           <div class="tech-video-container">
-            <video class="tech-video-player" autoplay loop muted playsinline webkit-playsinline preload="metadata">
-              <source src="images/video-gps.mp4" type="video/mp4" />
-              Seu navegador não suporta vídeo HTML5.
+            <video class="tech-video-player" autoplay loop muted playsinline webkit-playsinline preload="metadata"
+              poster="./images/ref-tech.jpg">
+              <source src="./images/video-gps.mp4" type="video/mp4" />
+              <!-- Fallback nativo caso o Android congele a mídia -->
+              <img src="./images/ref-tech.jpg" alt="GPS Fiel sendo posicionado" class="tech-video-player" />
             </video>
             <div class="tech-video-badge-row">
               <span class="v-badge"><i class="fas fa-circle-dot red-dot"></i> EQUIPAMENTO REAL</span>
