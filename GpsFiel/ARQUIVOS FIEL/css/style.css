@@ -1960,6 +1960,8 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
 }
 .footer-bottom p { font-size: 0.78rem; color: var(--gray-600); margin-bottom: 6px; }
 .footer-legal { font-size: 0.72rem !important; color: rgba(255,255,255,0.3) !important; max-width: 700px; margin: 0 auto !important; line-height: 1.6; }
+.developer-credit { margin-top: 14px; font-size: 0.8rem; color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif; }
+.developer-credit strong { color: var(--gold); font-family: 'Montserrat', sans-serif; letter-spacing: 0.05em; font-weight: 700; }
 
 /* ── WHATSAPP FLOAT ──────────────────────────────────────────── */
 .whatsapp-float {
