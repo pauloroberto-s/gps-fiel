@@ -2155,20 +2155,36 @@ h4 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; }
   .security-seals { grid-template-columns: 1fr; }
   .checkout-final-btn { padding: 14px 24px; font-size: 0.85rem; }
   .ccard-value { font-size: 1.7rem; }
-  
-  /* Profit Simulator Mobile */
-  .profit-sim { padding: 24px 16px; border-radius: var(--radius-lg); }
-  .profit-sim-header { margin-bottom: 20px; }
-  .profit-sim-header i { font-size: 1.6rem; }
-  .profit-sim-header h3 { font-size: 1.05rem; }
-  .sim-slider-wrap label { font-size: 0.75rem; }
-  .sim-slider-wrap label strong { font-size: 1rem; }
-  .sim-row { padding: 8px 10px; }
-  .sim-row span { font-size: 0.75rem; }
-  .sim-row strong { font-size: 0.85rem; }
-  .sim-profit-val { font-size: 0.95rem !important; }
-  .sim-note { font-size: 0.65rem; text-align: center; justify-content: center; }
-  
+  /* Hero CTA Mobile Fixes */
+  .hero-ctas { gap: 6px; }
+  .hero-ctas .btn { 
+    padding: 10px 4px; 
+    font-size: 0.62rem; 
+    word-break: break-word; 
+    hyphens: auto; 
+    min-height: 55px; 
+  }
+  .hero-ctas .btn i { font-size: 1.4rem; padding-bottom: 2px; }
+
+  /* Profit Simulator Mobile Blinda Overflow */
+  .profit-sim { 
+    padding: 20px 12px; 
+    border-radius: var(--radius-lg);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+  .profit-sim-header { margin-bottom: 16px; }
+  .profit-sim-header i { font-size: 1.4rem; }
+  .profit-sim-header h3 { font-size: 0.95rem; }
+  .sim-slider-wrap label { font-size: 0.70rem; }
+  .sim-slider-wrap label strong { font-size: 0.9rem; }
+  .sim-row { padding: 8px 8px; flex-wrap: wrap; gap: 4px; justify-content: space-between; }
+  .sim-row span { font-size: 0.70rem; max-width: 55%; line-height: 1.2; word-break: break-word; }
+  .sim-row strong { font-size: 0.80rem; max-width: 40%; text-align: right; }
+  .sim-profit-val { font-size: 0.90rem !important; }
+  .sim-note { font-size: 0.60rem; text-align: center; justify-content: center; margin-top: 10px; }
   .reseller-benefits { grid-template-columns: 1fr; }
   .auth-numbers { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
