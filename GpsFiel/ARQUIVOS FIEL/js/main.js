@@ -366,31 +366,45 @@ function initHeroVideo() {
   video.loop = false;
   video.controls = false;
   
-  // Tentar iniciar com áudio (como solicitado)
-  video.muted = false;
-  video.autoplay = true;
-  
-  if (soundBtn) {
-    soundBtn.innerHTML = '<i class="fas fa-volume-up"></i><span>Áudio ativo</span>';
-    soundBtn.classList.add('active');
-  }
+  // WORKAROUND ESPECÍFICO PARA ANDROID:
+  // Android Chrome bloqueia a mídia de forma irrecuperável se tentarmos iniciar unmuted direto;
+  // logo iniciamos mudo por default apenas neste SO. Desktop/iOS lidam bem com a exceção (Promise catch).
+  const isAndroid = /Android/i.test(navigator.userAgent);
 
-  const playPromise = video.play();
+  if (isAndroid) {
+    video.muted = true;
+    video.autoplay = true;
+    if (soundBtn) {
+      soundBtn.innerHTML = '<i class="fas fa-volume-xmark"></i><span>Ativar áudio</span>';
+      soundBtn.classList.remove('active');
+      soundBtn.style.display = 'flex';
+    }
+    video.play().catch(() => {});
+  } else {
+    // Tentar iniciar com áudio
+    video.muted = false;
+    video.autoplay = true;
+    
+    if (soundBtn) {
+      soundBtn.innerHTML = '<i class="fas fa-volume-up"></i><span>Áudio ativo</span>';
+      soundBtn.classList.add('active');
+    }
 
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      // Bloqueado pelas políticas do celular (Chrome/Safari)
-      // Fallback: Inicia mudo para garantir que o visual passe
-      video.muted = true;
-      video.play().catch(() => {});
-      
-      // Reseta visual do botão
-      if (soundBtn) {
-        soundBtn.innerHTML = '<i class="fas fa-volume-xmark"></i><span>Ativar áudio</span>';
-        soundBtn.classList.remove('active');
-        soundBtn.style.display = 'flex';
-      }
-    });
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        // Bloqueado (Safari/Chrome Desktop sem engajamento)
+        video.muted = true;
+        video.play().catch(() => {});
+        
+        if (soundBtn) {
+          soundBtn.innerHTML = '<i class="fas fa-volume-xmark"></i><span>Ativar áudio</span>';
+          soundBtn.classList.remove('active');
+          soundBtn.style.display = 'flex';
+        }
+      });
+    }
   }
 
   if (soundBtn) {
